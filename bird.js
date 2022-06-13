@@ -1,5 +1,7 @@
 const birdElem = document.querySelector("[data-bird]");
 const BIRD_SPEED = 0.3;
+const JUMP_DURATION = 125;
+let timeSinceLastJump = Number.POSITIVE_INFINITY;
 
 export function setupBird() {
   setTop(window.innerHeight / 2);
@@ -8,8 +10,12 @@ export function setupBird() {
 }
 
 export function updateBird(delta) {
-  setTop(getTop() + BIRD_SPEED * delta);
-  console.log(getTop());
+if(timeSinceLastJump < JUMP_DURATION) {
+    setTop(getTop() - BIRD_SPEED * delta)
+} else {
+    setTop(getTop() + BIRD_SPEED * delta)
+}
+  timeSinceLastJump += delta;
 }
 
 function setTop(top) {
@@ -24,4 +30,5 @@ function handleJump(e) {
   if (e.code !== "Space") {
     return;
   }
+  timeSinceLastJump = 0;
 }
