@@ -18,6 +18,10 @@ if(timeSinceLastJump < JUMP_DURATION) {
   timeSinceLastJump += delta;
 }
 
+export function getBirdRect() {
+    return birdElem.getBoundingClientRect()
+}
+
 function setTop(top) {
   birdElem.style.setProperty("--bird-top", top);
 }
