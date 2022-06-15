@@ -7,6 +7,22 @@ body {
     overflow: hidden;
 }
 
+.background {
+    background: url(../src/img/background.png) repeat-x;
+    width: 200vw;
+    height: 100vh;
+    animation: slide 10s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(-800px);
+    }
+  }
+
 .title {
     z-index: 10;
     position: absolute;
@@ -28,7 +44,6 @@ body {
 .bird {
     --bird-top: -1000;
     --bird--size: 60px;
-    background-color: hsl(50,75%, 50%);
     position: absolute;
     width: var(--bird--size);
     height: var(--bird--size);
